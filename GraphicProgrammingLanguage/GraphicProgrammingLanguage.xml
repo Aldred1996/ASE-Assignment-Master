@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GraphicProgrammingLanguage</name>
+    </assembly>
+    <members>
+        <member name="M:GraphicProgrammingLanguage.Canvas.saveButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event of clicking the save button, which will allow the user to store commands in the text box to a text file
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Canvas.loadButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event of clicking the load button, which will allow users to load a text file of commands into the text box
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Canvas.runButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event of clicking the run button, providing the ability to exectue the commands and draw shapes on the canvas
+            </summary>
+        </member>
+        <member name="F:GraphicProgrammingLanguage.Canvas.components">
+            <summary>
+             Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Canvas.Dispose(System.Boolean)">
+            <summary>
+             Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Canvas.InitializeComponent">
+            <summary>
+             Required method for Designer support - do not modify
+             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.CommandParser">
+            <summary>
+            Parses commands, seperates the command and argument from each other
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.CommandParser.Command">
+            <summary>
+            Gets the command
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.CommandParser.Args">
+            <summary>
+            Gets the arguments for the given command
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.CommandParser.#ctor(System.Windows.Forms.PictureBox,System.String)">
+            <summary>
+            Initialises a new instance of the CommandParser class
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="enteredCommand">The command string to be parsed</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Program.Main">
+            <summary>
+             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.ApplicationConfiguration">
+            <summary>
+             Bootstrap the application configuration.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.ApplicationConfiguration.Initialize">
+            <summary>
+             Bootstrap the application as follows:
+             <code>
+             global::System.Windows.Forms.Application.EnableVisualStyles();
+             global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+             global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            </code>
+            </summary>
+        </member>
+        <member name="T:CanvasPen">
+            <summary>
+            Handles commands for the pen color for drawing on the canvas
+            </summary>
+        </member>
+        <member name="M:CanvasPen.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the pen color command to select from specific colors for the canvas pen
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The argument containing the pen color</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:Circle">
+            <summary>
+            Enables the ability to draw circles on the canvas
+            </summary>
+        </member>
+        <member name="M:Circle.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the circle drawing command
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The array of strings containing the radius</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:Clear">
+            <summary>
+            Enables the functionality to clear the canvas of any drawings
+            </summary>
+        </member>
+        <member name="M:Clear.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the clearing of the canvas
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args"></param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:DrawingPosition">
+            <summary>
+            Represents the position for drawing on the canvas
+            </summary>
+        </member>
+        <member name="P:DrawingPosition.X">
+            <summary>
+            The X coordinate for the drawing position
+            </summary>
+        </member>
+        <member name="P:DrawingPosition.Y">
+            <summary>
+            The Y coodrinate for the drawing position
+            </summary>
+        </member>
+        <member name="P:DrawingPosition.PenColor">
+            <summary>
+            The color that will be used for drawing
+            </summary>
+        </member>
+        <member name="P:DrawingPosition.FillOn">
+            <summary>
+            The toggle to indicate if the Fill option is enabled or not
+            </summary>
+        </member>
+        <member name="M:DrawingPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DrawingPosition"/> class
+            </summary>
+            <param name="x">The X coordinate for the drawing position</param>
+            <param name="y">The Y coordinate for the drawing position</param>
+        </member>
+        <member name="T:Drawto">
+            <summary>
+            Enables the ability to draw lines from one place to another on the canvas
+            </summary>
+        </member>
+        <member name="M:Drawto.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the drawto command, drawing a line from one coordinate to another
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The array of strings containing the x and y coordinates</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="M:Fill.Execute(DrawingPosition,System.String[])">
+            <summary>
+            Sets the fill option to either true or not true for the drawing position
+            </summary>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+            <param name="args">An array of string arguments to set the fill to on or off</param>
+        </member>
+        <member name="T:Moveto">
+            <summary>
+            Enables the ability to move to a different drawing position on the canvas
+            </summary>
+        </member>
+        <member name="M:Moveto.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the moveto command, moving to a given position on the canvas and creating a small dot
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The array of strings containing the x and y coordinates</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:Rectangle">
+            <summary>
+            Enables the ability to draw rectangles on the canvas
+            </summary>
+        </member>
+        <member name="M:Rectangle.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the Rectangle command to draw a rectangle onto the canvas with the given parameters
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The array of strings containing the width and height</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:Reset">
+            <summary>
+            Enables the ability to reset the drawing position
+            </summary>
+        </member>
+        <member name="M:Reset.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the reset command, resetting the drawing position to 0, 0
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args"></param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+        <member name="T:Triangle">
+            <summary>
+            Enables the ability to draw triangles on the canvas
+            </summary>
+        </member>
+        <member name="M:Triangle.Execute(System.Windows.Forms.PictureBox,System.String[],DrawingPosition)">
+            <summary>
+            Executes the Triangle command to draw a triangle onto the canvas with the given parameters
+            </summary>
+            <param name="pictureBox">The canvas in which the drawing occurs</param>
+            <param name="args">The array of strings containing the side length</param>
+            <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
+        </member>
+    </members>
+</doc>
